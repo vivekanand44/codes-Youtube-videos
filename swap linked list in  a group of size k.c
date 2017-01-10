@@ -88,6 +88,8 @@ int main()
 	printf("Enter the number of nodes");
 	scanf("%d",&n);
 	
+	
+	printf("Enter all the nodes separated by space \n");
 	p = (node*)malloc(sizeof(node));
 	scanf("%d",&a);
 	p->data = a;
