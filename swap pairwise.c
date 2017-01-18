@@ -40,6 +40,7 @@ int main()
 		p = p->next;
 	}
 	
+	//swapping code
 	p = start;
 	start = p->next;
 	while(1)
@@ -64,7 +65,7 @@ int main()
 	p = temp;
 	
 	}
-	
+// print the swapped list	
 	printf("\n swapped list = ");
 	p = start;
 	while(p!=NULL)
