@@ -140,6 +140,7 @@ void heapify(int a[] , int n)
 int main()
 {
 	int a[] = {9,8,7,6,5,4,3,2,1};
+	int s=sizeof(a)/sizeof(a[0]);
 	cout << " Sorted Output as Follows :- \n\n";
-	heapify(a , 9); // 9 is the length of array
+	heapify(a , s); // s is the length of array
 }
