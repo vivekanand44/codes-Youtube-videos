@@ -3,56 +3,77 @@
 
 int main()
 {
-    int n,i,j;
-    int a[100][100];
+    int a,b,n,i,j,choice, coin , amount;
+    int arr[100][100];
 
-    printf("Enter the number");
-    scanf("%d",&n);
-
-    for(i=0;i<=n;i++)
+    printf("Enter the operation number to be performed :- \n 1. Integer Partition \n 2. Coin Change Problem\n");
+    scanf("%d",&choice);
+    
+    if (choice == 1)
     {
-        for (j=0;j<=n;j++)
+        printf("\nEnter the Integer :- ");
+        scanf("%d",&n);
+        a = n;
+        b = n;
+    }
+    else if(choice == 2) 
+    {
+        printf("\nEnter the highest coin value...");
+        scanf("%d",&coin);
+        printf("\nEnter the total amount...");
+        scanf("%d",&amount);
+        a = coin;
+        b = amount;    
+    
+    }
+    
+
+
+    
+    for(i=0;i<=a;i++)
+    {
+        for (j=0;j<=b;j++)
         {
-            a[i][j] = 0;
+            arr[i][j] = 0;
 
         }
     }
     
-    for (i=1;i<=n;i++)
+    for (i=1;i<=a;i++)
     {
-        a[i][1] = 1;
-        a[1][i] = 1; 
-        
+        arr[i][1] = 1;
+    }
+    for (j=1;j<=b;j++)
+    {
+        arr[1][j] = 1;
     }
 
-
-    for (i=2;i<=n;i++)
+    for (i=2;i<=a;i++)
     {
-        for (j=2;j<=n;j++)
+        for (j=2;j<=b;j++)
         {
-            a[i][j] = a[i-1][j] +  a[i][j-i];
-
+            arr[i][j] = arr[i-1][j] +  arr[i][j-i];
         }
     }
 
-    printf("\n\n The number of ways = %d",a[n][n]);
+    printf("\n\n The number of ways = %d",arr[a][b]);
 
     printf("\n\n Dynamic Programming Matrix......\n");
     
 
     printf("\t");
-    for (i=0;i<=n;i++)
+    for (j=0;j<=b;j++)
     {
-        printf("%d\t",i);
+        printf("%d\t",j);
     }
-    for (i=0;i<=n;i++)
+    for (i=0;i<=a;i++)
     {
         printf("\n");
         printf("%d\t",i);
-        for (j=0;j<=n;j++)
+        for (j=0;j<=b;j++)
         {
             
-            printf("%d\t",a[i][j]);
+            printf("%d\t",arr[i][j]);
         }
     }
 
