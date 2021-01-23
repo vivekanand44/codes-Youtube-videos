@@ -49,7 +49,7 @@ int majorityElement(int a[], int size)
                 cnt = cnt + 1;
                 if (cnt > (size/2))
                     {
-                        cout << a[i];
+                        cout << "Majority Element = " <<  a[i];
                         flag = 1;
                         break;
                     }
