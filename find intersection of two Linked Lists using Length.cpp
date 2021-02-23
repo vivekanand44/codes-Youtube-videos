@@ -16,19 +16,30 @@ node *newNode(int data)
 	
 	return p;  
 }
+
 int find_length(node *start)
-{
-	int cnt = 0;
-	node *p;
-	p = start;
-	while(p!=NULL)
-	{
-		cnt++;
-		p = p->next;
-	}
+{       
+        int cnt = 0;
+        node *p;
+        p = start;
+        if(p!=NULL)
+        while(1)
+        {       
+                if(p==NULL)
+                        break;
+                if(p->next == NULL)
+                {       
+                        cnt++;
+                        break;
+                }
+                cnt +=2;
+                p = p->next->next;
+        }
 
 return cnt;
 }
+
+
 node *find_intersection(node *p , node *q)
 {
 	node *larger , *smaller;
@@ -36,21 +47,18 @@ node *find_intersection(node *p , node *q)
 	m = find_length(p);   //calculate length
 	n = find_length(q);
 	
-	d = m-n;  //find difference
-	if(d < 0)  //find absolute value
-	{
-		d = d * -1;
-	}
 	
 	if(m > n) //   find larger length linked list
 		{
 			larger = p;
 			smaller = q;
+			d = m-n;  //find difference
 		}
 	else
 		{
 			larger = q;
 			smaller = p;
+			d = n-m;  //find difference
 		}
 		
 	cnt = 0;
