@@ -1,0 +1,44 @@
+#include <stdio.h>
+int main()
+{   int m,n, mat[3][3]={{1,2,3},{4,5,6},{7,8,9}};   //m=rows total, n =total columns
+    int i, k=0,l=0; //k initialized for rows, l for columns
+    int last_row=m-1, last_col=n-1;         //if there are 4 rows last row is 3, same for columns
+    
+    while(k<=last_row && l<=last_col)       //variable k and l should not go beyond the last row or columns
+        {   printf("Inside loop");
+            for(i=l;i<last_col;i++) // this block is for printing the first row
+            {printf("%d  ",mat[k][i]);
+            }
+            k++; //as first row is printed, k goes to the next row
+            for(i=k;i<=last_row;i++)    //this block is for printing the column. The way the spiral matrix is printed is like this,first row->last column->next row-->next column and so online
+            {
+                printf("%d  ",mat[i][last_col]);// i goes from k to the last row
+            }            
+            last_col--; //last_col is printed now it should be decremented, so that the inner matrix is traced in the next while loop
+            
+            if (k<=last_row)
+            {
+                for(i=last_col;i>=l;i--)
+                {
+                    printf("%d  ",mat[last_row][i]);
+                }
+                last_row--;
+            }
+            if(l<=last_col)
+            {
+                for(i=last_row;i>=k;i--)
+                {
+                    printf("%d  ",mat[i][l]);
+                }
+                 printf("\n");
+                l++;
+            }
+        }
+        
+    
+    
+    
+
+    return 0;
+}
+
