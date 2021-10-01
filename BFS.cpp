@@ -30,11 +30,11 @@ void levelorder(node *root)
 {
 	node *q;
 	printf("\n");
-	enqueue(root);
+	enqueue(root); // not popping here
 	while(rear-1!=front)
 	{
 //		printf("\nrear = %d , front = %d",rear , front);
-		q = dequeue();		
+		q = dequeue();		//popping the front element here
 		printf("%d\t",q->a);
 		if(q->left)
 			enqueue(q->left);
