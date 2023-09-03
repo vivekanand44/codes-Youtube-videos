@@ -22,3 +22,5 @@ int main()
 	fibonacci(n);
 	return 0;
 }
+
+//This is a non-recursive method of Fibonacci Series
